@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elyon NeuroKids — Clínica Infantil Multidisciplinar</title>
+<link href="https://fonts.googleapis.com/css2?family=Pompiere&family=Charmonman:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --roxo: #9B7EC8;
+    --verde: #4DBFA0;
+    --rosa: #D96BAE;
+    --coral: #E8705A;
+    --amarelo: #F5B731;
+    --azul: #8BB8D4;
+    --off-white: #FAFAF8;
+    --texto: #3a3a3a;
+    --texto-suave: #6b6b6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--off-white);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid #f0ece8;
+    padding: 14px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Charmonman', cursive;
+    font-size: 22px;
+    color: var(--amarelo);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--verde); font-size: 14px; display: block; font-family: 'Pompiere', cursive; letter-spacing: 2px; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--texto-suave); font-size: 14px; font-weight: 600; letter-spacing: 0.5px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--roxo); }
+  .nav-cta {
+    background: var(--verde); color: #fff;
+    padding: 10px 24px; border-radius: 50px;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .nav-cta:hover { background: #3aaa8d; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    padding: 100px 40px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: #f0f9f5;
+    color: var(--verde);
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 50px;
+    border: 1.5px solid var(--verde);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'Charmonman', cursive;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.15;
+    color: var(--roxo);
+    margin-bottom: 10px;
+  }
+  .hero-title em { color: var(--amarelo); font-style: normal; }
+  .hero-subtitle {
+    font-family: 'Pompiere', cursive;
+    font-size: 22px; letter-spacing: 2px;
+    color: var(--verde); margin-bottom: 24px;
+  }
+  .hero-desc {
+    font-size: 16px; line-height: 1.8;
+    color: var(--texto-suave); max-width: 480px;
+    margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--amarelo); color: #fff;
+    padding: 14px 32px; border-radius: 50px;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 16px rgba(245,183,49,0.3);
+  }
+  .btn-primary:hover { background: #e0a520; transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent; color: var(--roxo);
+    padding: 14px 32px; border-radius: 50px;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    border: 2px solid var(--roxo);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--roxo); color: #fff; }
+
+  .hero-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-circle-bg {
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f8f0ff 0%, #e8f8f3 50%, #fff8e8 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .hero-logo-text {
+    text-align: center;
+  }
+  .hero-logo-brain {
+    font-size: 80px; line-height: 1;
+    margin-bottom: 8px; display: block;
+  }
+  .hero-logo-name {
+    font-family: 'Charmonman', cursive;
+    font-size: 36px; color: var(--amarelo);
+  }
+  .hero-logo-clinic {
+    font-family: 'Pompiere', cursive;
+    font-size: 18px; letter-spacing: 3px;
+    color: var(--verde); display: block;
+  }
+  .hero-bubble {
+    position: absolute;
+    border-radius: 50px; padding: 10px 18px;
+    font-size: 13px; font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .bubble-1 { top: 40px; right: -10px; background: var(--roxo); color: #fff; }
+  .bubble-2 { bottom: 80px; right: -20px; background: var(--rosa); color: #fff; }
+  .bubble-3 { bottom: 30px; left: -10px; background: var(--verde); color: #fff; }
+  .bubble-4 { top: 80px; left: -20px; background: var(--azul); color: #fff; }
+
+  /* ── SECTION WRAPPER ── */
+  section { padding: 80px 40px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    font-family: 'Pompiere', cursive;
+    font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Charmonman', cursive;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 16px; line-height: 1.8;
+    color: var(--texto-suave); max-width: 600px;
+    margin-bottom: 48px;
+  }
+
+  /* ── SOBRE ── */
+  #sobre { background: #fff; }
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+  }
+  .sobre-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .sobre-card {
+    border-radius: 20px; padding: 24px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .sobre-card-icon { font-size: 28px; }
+  .sobre-card h4 { font-size: 15px; font-weight: 700; }
+  .sobre-card p { font-size: 13px; line-height: 1.6; color: var(--texto-suave); }
+  .card-roxo { background: #f5f0ff; border: 1.5px solid #ddd0f5; }
+  .card-roxo h4 { color: var(--roxo); }
+  .card-verde { background: #edfaf5; border: 1.5px solid #c0ead9; }
+  .card-verde h4 { color: var(--verde); }
+  .card-amarelo { background: #fff9ec; border: 1.5px solid #f5dfa0; }
+  .card-amarelo h4 { color: var(--amarelo); }
+  .card-coral { background: #fff3f0; border: 1.5px solid #f5c8bf; }
+  .card-coral h4 { color: var(--coral); }
+  .sobre-text .section-tag { color: var(--verde); }
+  .sobre-text .section-title { color: var(--roxo); }
+  .sobre-quote {
+    background: linear-gradient(135deg, var(--verde) 0%, var(--azul) 100%);
+    border-radius: 20px; padding: 28px;
+    color: #fff; font-size: 16px; line-height: 1.7;
+    font-style: italic; margin-top: 24px;
+    position: relative;
+  }
+  .sobre-quote::before { content: '"'; font-size: 60px; line-height: 0; position: absolute; top: 40px; left: 20px; opacity: 0.3; font-family: Georgia; }
+
+  /* ── ESPECIALIDADES ── */
+  #especialidades { background: var(--off-white); }
+  #especialidades .section-tag { color: var(--rosa); }
+  #especialidades .section-title { color: var(--roxo); }
+  .esp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  .esp-card {
+    border-radius: 24px; padding: 32px 20px;
+    text-align: center; cursor: default;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+  }
+  .esp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .esp-icon { font-size: 40px; margin-bottom: 12px; display: block; }
+  .esp-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .esp-card p { font-size: 13px; line-height: 1.5; color: var(--texto-suave); }
+  .esp-roxo { background: #f5f0ff; border-color: #ddd0f5; }
+  .esp-roxo h3 { color: var(--roxo); }
+  .esp-verde { background: #edfaf5; border-color: #c0ead9; }
+  .esp-verde h3 { color: var(--verde); }
+  .esp-rosa { background: #fff0f8; border-color: #f5c8e8; }
+  .esp-rosa h3 { color: var(--rosa); }
+  .esp-coral { background: #fff3f0; border-color: #f5c8bf; }
+  .esp-coral h3 { color: var(--coral); }
+  .esp-amarelo { background: #fff9ec; border-color: #f5dfa0; }
+  .esp-amarelo h3 { color: var(--amarelo); }
+  .esp-azul { background: #f0f6ff; border-color: #c0d8f0; }
+  .esp-azul h3 { color: var(--azul); }
+
+  /* ── EQUIPE ── */
+  #equipe { background: #fff; }
+  #equipe .section-tag { color: var(--amarelo); }
+  #equipe .section-title { color: var(--roxo); }
+  .equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .prof-card {
+    border-radius: 24px; overflow: hidden;
+    border: 2px solid #f0ece8;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .prof-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .prof-avatar {
+    height: 130px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 56px;
+  }
+  .prof-info { padding: 20px; background: #fff; }
+  .prof-info h3 { font-size: 15px; font-weight: 700; color: var(--texto); margin-bottom: 4px; }
+  .prof-info .esp-tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 3px 12px; border-radius: 50px; letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .prof-info p { font-size: 12px; color: var(--texto-suave); line-height: 1.5; }
+  .av-roxo { background: #f5f0ff; }
+  .av-verde { background: #edfaf5; }
+  .av-rosa { background: #fff0f8; }
+  .av-coral { background: #fff3f0; }
+  .av-amarelo { background: #fff9ec; }
+  .av-azul { background: #f0f6ff; }
+  .tag-roxo { background: #f5f0ff; color: var(--roxo); }
+  .tag-verde { background: #edfaf5; color: var(--verde); }
+  .tag-rosa { background: #fff0f8; color: var(--rosa); }
+  .tag-coral { background: #fff3f0; color: var(--coral); }
+  .tag-amarelo { background: #fff9ec; color: var(--amarelo); }
+  .tag-azul { background: #f0f6ff; color: var(--azul); }
+
+  /* ── PLANOS ── */
+  #planos { background: var(--off-white); }
+  #planos .section-tag { color: var(--coral); }
+  #planos .section-title { color: var(--roxo); }
+  .planos-tabs {
+    display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 10px 24px; border-radius: 50px;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    border: 2px solid #e0dcd8;
+    background: #fff; color: var(--texto-suave);
+    transition: all 0.2s;
+  }
+  .tab-btn.active { background: var(--roxo); color: #fff; border-color: var(--roxo); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .planos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .plano-card {
+    background: #fff; border-radius: 24px;
+    padding: 28px; border: 2px solid #f0ece8;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .plano-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+  .plano-card.destaque { border-color: var(--verde); }
+  .plano-badge {
+    position: absolute; top: 0; right: 0;
+    background: var(--verde); color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    padding: 6px 16px; border-radius: 0 22px 0 16px;
+  }
+  .plano-card h3 {
+    font-family: 'Pompiere', cursive;
+    font-size: 20px; letter-spacing: 1px;
+    color: var(--roxo); margin-bottom: 4px;
+  }
+  .plano-price {
+    font-size: 38px; font-weight: 700; color: var(--texto);
+    line-height: 1; margin: 12px 0;
+  }
+  .plano-price sup { font-size: 18px; vertical-align: super; }
+  .plano-price span { font-size: 15px; font-weight: 600; color: var(--texto-suave); }
+  .plano-divider { height: 1px; background: #f0ece8; margin: 16px 0; }
+  .plano-items { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+  .plano-items li { font-size: 14px; display: flex; align-items: center; gap: 8px; color: var(--texto-suave); }
+  .plano-items li::before { content: '✓'; color: var(--verde); font-weight: 700; flex-shrink: 0; }
+  .plano-cta {
+    display: block; width: 100%; text-align: center;
+    padding: 12px; border-radius: 50px;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+    background: var(--amarelo); color: #fff;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .plano-cta:hover { background: #e0a520; transform: translateY(-1px); }
+
+  /* preços individuais */
+  .ind-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .ind-card {
+    background: #fff; border-radius: 20px; padding: 24px;
+    border: 2px solid #f0ece8; text-align: center;
+    transition: transform 0.2s;
+  }
+  .ind-card:hover { transform: translateY(-3px); }
+  .ind-card .esp-icon { font-size: 32px; margin-bottom: 8px; display: block; }
+  .ind-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .ind-price { font-size: 28px; font-weight: 700; line-height: 1; }
+  .ind-price sup { font-size: 14px; vertical-align: super; }
+  .ind-card p { font-size: 12px; color: var(--texto-suave); margin-top: 4px; }
+
+  /* ── DEPOIMENTOS ── */
+  #depoimentos { background: #fff; }
+  #depoimentos .section-tag { color: var(--rosa); }
+  #depoimentos .section-title { color: var(--roxo); }
+  .dep-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .dep-card {
+    border-radius: 24px; padding: 28px;
+    border: 2px solid #f0ece8; background: var(--off-white);
+    position: relative;
+  }
+  .dep-stars { color: var(--amarelo); font-size: 16px; margin-bottom: 12px; letter-spacing: 2px; }
+  .dep-text { font-size: 15px; line-height: 1.7; color: var(--texto-suave); margin-bottom: 20px; font-style: italic; }
+  .dep-author { display: flex; align-items: center; gap: 12px; }
+  .dep-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .dep-name { font-size: 14px; font-weight: 700; }
+  .dep-role { font-size: 12px; color: var(--texto-suave); }
+
+  /* ── CONTATO ── */
+  #contato {
+    background: linear-gradient(135deg, #f5f0ff 0%, #edfaf5 50%, #fff8e8 100%);
+  }
+  #contato .section-tag { color: var(--verde); }
+  #contato .section-title { color: var(--roxo); }
+  .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contato-info { display: flex; flex-direction: column; gap: 20px; }
+  .contato-item { display: flex; align-items: flex-start; gap: 16px; }
+  .contato-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .contato-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .contato-item p { font-size: 14px; color: var(--texto-suave); line-height: 1.5; }
+  .contato-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 13px; font-weight: 700; color: var(--texto); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 16px; border-radius: 12px;
+    border: 2px solid #e0dcd8; background: #fff;
+    font-family: 'Nunito', sans-serif; font-size: 14px;
+    color: var(--texto); outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--verde); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    background: var(--verde); color: #fff;
+    border: none; padding: 14px 32px; border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: #3aaa8d; transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #2a2a2a; color: #ccc;
+    padding: 48px 40px 24px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px; margin-bottom: 40px;
+  }
+  .footer-brand .nav-logo { font-size: 26px; }
+  .footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 12px; color: #aaa; }
+  .footer-col h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: 1px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul a { text-decoration: none; color: #aaa; font-size: 14px; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--verde); }
+  .footer-bottom { border-top: 1px solid #3a3a3a; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { font-size: 13px; color: #888; }
+
+  /* ── WHATSAPP FLOAT ── */
+  .whatsapp-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text > * { animation: fadeUp 0.6s ease both; }
+  .hero-text > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-text > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-text > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-text > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-text > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-visual { animation: fadeUp 0.8s ease 0.3s both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 90px 20px 40px; gap: 40px; text-align: center; }
+    .hero-desc { margin: 0 auto 32px; }
+    .hero-btns { justify-content: center; }
+    .hero-visual { order: -1; }
+    .hero-circle-bg { width: 280px; height: 280px; }
+    .hero-logo-brain { font-size: 56px; }
+    .hero-logo-name { font-size: 26px; }
+    .bubble-1, .bubble-2, .bubble-3, .bubble-4 { display: none; }
+    section { padding: 60px 20px; }
+    .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    Elyon NeuroKids
+    <span>✦ clínica infantil ✦</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+  </ul>
+  <a href="#contato" class="nav-cta">Agendar consulta</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="padding-top:100px">
+  <div class="hero-text">
+    <span class="hero-tag">✦ Clínica Multidisciplinar Infantil ✦</span>
+    <h1 class="hero-title">Cuidado que <em>transforma</em> vidas</h1>
+    <p class="hero-subtitle">Elyon NeuroKids</p>
+    <p class="hero-desc">Atendimento inter e multidisciplinar especializado para crianças com TEA, TDAH e outras alterações neurológicas. Tratamentos com comprovação científica para resultados mais rápidos e seguros.</p>
+    <div class="hero-btns">
+      <a href="#planos" class="btn-primary">Conheça nossos planos</a>
+      <a href="https://wa.me/5538032201705" target="_blank" class="btn-secondary">Falar no WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-circle-bg">
+      <div class="hero-logo-text">
+        <span class="hero-logo-brain">🧠</span>
+        <div class="hero-logo-name">Elyon NeuroKids</div>
+        <span class="hero-logo-clinic">clínica infantil</span>
+      </div>
+    </div>
+    <span class="hero-bubble bubble-1">🎯 TEA & TDAH</span>
+    <span class="hero-bubble bubble-2">💜 Fonoaudiologia</span>
+    <span class="hero-bubble bubble-3">🌿 Psicologia</span>
+    <span class="hero-bubble bubble-4">⚡ Fisioterapia</span>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="sobre-grid">
+      <div class="sobre-text">
+        <p class="section-tag" style="color:var(--verde)">✦ Quem somos ✦</p>
+        <h2 class="section-title" style="color:var(--roxo)">Uma clínica criada com cuidado e propósito</h2>
+        <p class="section-desc">Somos uma clínica voltada a acolher famílias que necessitam de tratamento inter e multidisciplinar. Cuidamos de toda a família, oferecendo um serviço ágil e de excelência — com os tratamentos mais atualizados e com comprovação científica.</p>
+        <div class="sobre-quote">
+          Acreditamos que o cuidado, a atenção e o atendimento individualizado sempre fazem a diferença, independente das dificuldades e queixas que possam existir.
+        </div>
+      </div>
+      <div class="sobre-cards">
+        <div class="sobre-card card-roxo">
+          <span class="sobre-card-icon">🎯</span>
+          <h4>Nossa Missão</h4>
+          <p>Oferecer atendimento multidisciplinar de excelência para crianças com alterações neurológicas.</p>
+        </div>
+        <div class="sobre-card card-verde">
+          <span class="sobre-card-icon">🌱</span>
+          <h4>Nossa Visão</h4>
+          <p>Ser referência em tratamentos infantis, aumentando o faturamento em 100% e alcançando mais famílias.</p>
+        </div>
+        <div class="sobre-card card-amarelo">
+          <span class="sobre-card-icon">💡</span>
+          <h4>Nossos Valores</h4>
+          <p>Ciência, acolhimento, resultados concretos e atendimento individualizado para cada criança.</p>
+        </div>
+        <div class="sobre-card card-coral">
+          <span class="sobre-card-icon">🏆</span>
+          <h4>Nosso Diferencial</h4>
+          <p>Métodos específicos com comprovação científica que geram resultados mais rápidos e com segurança.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades">
+  <div class="section-inner">
+    <p class="section-tag" style="color:var(--rosa)">✦ O que oferecemos ✦</p>
+    <h2 class="section-title" style="color:var(--roxo)">Nossas especialidades</h2>
+    <p class="section-desc">Equipe completa de profissionais especializados para o desenvolvimento integral da sua criança.</p>
+    <div class="esp-grid">
+      <div class="esp-card esp-roxo">
+        <span class="esp-icon">🗣️</span>
+        <h3>Fonoaudiologia</h3>
+        <p>Métodos específicos para fala, linguagem e seletividade alimentar com resultados comprovados.</p>
+      </div>
+      <div class="esp-card esp-verde">
+        <span class="esp-icon">🧠</span>
+        <h3>Psicologia</h3>
+        <p>Acompanhamento comportamental e emocional especializado em TEA e TDAH.</p>
+      </div>
+      <div class="esp-card esp-rosa">
+        <span class="esp-icon">🤸</span>
+        <h3>Fisioterapia</h3>
+        <p>Desenvolvimento motor e reabilitação com técnicas modernas e individualizadas.</p>
+      </div>
+      <div class="esp-card esp-coral">
+        <span class="esp-icon">🥗</span>
+        <h3>Nutrição</h3>
+        <p>Orientação nutricional especializada para crianças com necessidades específicas.</p>
+      </div>
+      <div class="esp-card esp-amarelo">
+        <span class="esp-icon">💊</span>
+        <h3>Psiquiatria</h3>
+        <p>Avaliação e acompanhamento psiquiátrico pediátrico com foco em saúde mental.</p>
+      </div>
+      <div class="esp-card esp-azul">
+        <span class="esp-icon">📚</span>
+        <h3>Psicopedagogia</h3>
+        <p>Suporte para dificuldades de aprendizagem e desenvolvimento educacional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section id="equipe">
+  <div class="section-inner">
+    <p class="section-tag" style="color:var(--amarelo)">✦ Nossos profissionais ✦</p>
+    <h2 class="section-title" style="color:var(--roxo)">Conheça nossa equipe</h2>
+    <p class="section-desc">Profissionais altamente qualificados e dedicados ao desenvolvimento e bem-estar das crianças.</p>
+    <div class="equipe-grid">
+      <div class="prof-card">
+        <div class="prof-avatar av-roxo">👩‍⚕️</div>
+        <div class="prof-info">
+          <h3>Daniella Cordeiro</h3>
+          <span class="esp-tag tag-roxo">Médica — Pós Psiquiatria</span>
+          <p>Especialista em psiquiatria infantil com foco em diagnóstico e tratamento de TEA e TDAH.</p>
+        </div>
+      </div>
+      <div class="prof-card">
+        <div class="prof-avatar av-rosa">👩‍⚕️</div>
+        <div class="prof-info">
+          <h3>Camila Lopes</h3>
+          <span class="esp-tag tag-rosa">Fisioterapia</span>
+          <p>Especialista em fisioterapia infantil e desenvolvimento motor para crianças com necessidades especiais.</p>
+        </div>
+      </div>
+      <div class="prof-card">
+        <div class="prof-avatar av-verde">👩‍⚕️</div>
+        <div class="prof-info">
+          <h3>Danielle Beatriz</h3>
+          <span class="esp-tag tag-verde">Fonoaudiologia</span>
+          <p>Fonoaudióloga especialista em linguagem infantil, métodos específicos e seletividade alimentar.</p>
+        </div>
+      </div>
+      <div class="prof-card">
+        <div class="prof-avatar av-azul">👩‍⚕️</div>
+        <div class="prof-info">
+          <h3>Dione Câmara</h3>
+          <span class="esp-tag tag-azul">Psicologia</span>
+          <p>Psicóloga clínica especializada em crianças com transtornos do neurodesenvolvimento.</p>
+        </div>
+      </div>
+      <div class="prof-card">
+        <div class="prof-avatar av-coral">👩‍⚕️</div>
+        <div class="prof-info">
+          <h3>Maria Cecília</h3>
+          <span class="esp-tag tag-coral">Especialista</span>
+          <p>Atendimento especializado com retorno incluso em 30 dias para acompanhamento completo.</p>
+        </div>
+      </div>
+      <div class="prof-card">
+        <div class="prof-avatar av-amarelo">👩‍⚕️</div>
+        <div class="prof-info">
+          <h3>Isabel</h3>
+          <span class="esp-tag tag-amarelo">Nutricionista</span>
+          <p>Especializada em nutrição infantil com foco em crianças com seletividade alimentar e TEA.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="section-inner">
+    <p class="section-tag" style="color:var(--coral)">✦ Planos e valores ✦</p>
+    <h2 class="section-title" style="color:var(--roxo)">Planos de atendimento</h2>
+    <p class="section-desc">Pacotes pensados para oferecer o melhor tratamento com condições acessíveis. Escolha o plano ideal para sua família.</p>
+
+    <div class="planos-tabs">
+      <button class="tab-btn active" onclick="showTab('completos')">Planos Completos</button>
+      <button class="tab-btn" onclick="showTab('basicos')">Planos Básicos</button>
+      <button class="tab-btn" onclick="showTab('individuais')">Sessões Individuais</button>
+    </div>
+
+    <!-- COMPLETOS -->
+    <div class="tab-content active" id="tab-completos">
+      <div class="planos-grid">
+        <div class="plano-card destaque">
+          <div class="plano-badge">✦ MAIS COMPLETO</div>
+          <h3>Completo</h3>
+          <p style="font-size:13px;color:var(--texto-suave);margin-bottom:4px">Plano mais completo disponível</p>
+          <div class="plano-price"><sup>R$</sup>1.900<span>/mês</span></div>
+          <div class="plano-divider"></div>
+          <ul class="plano-items">
+            <li>4 sessões de Fonoaudiologia</li>
+            <li>4 sessões de Psicologia</li>
+            <li>4 sessões de Fisioterapia</li>
+            <li>1 consulta com Nutricionista</li>
+            <li>1 consulta com Psiquiatra</li>
+          </ul>
+          <a href="https://wa.me/5538032201705?text=Olá!%20Tenho%20interesse%20no%20Plano%20Completo%20da%20Elyon%20NeuroKids." target="_blank" class="plano-cta">Quero este plano</a>
+        </div>
+        <div class="plano-card">
+          <h3>Completo Natural</h3>
+          <p style="font-size:13px;color:var(--texto-suave);margin-bottom:4px">Com homeopata incluso</p>
+          <div class="plano-price"><sup>R$</sup>1.500<span>/mês</span></div>
+          <div class="plano-divider"></div>
+          <ul class="plano-items">
+            <li>4 sessões de Fonoaudiologia</li>
+            <li>4 sessões de Psicologia</li>
+            <li>4 sessões de Fisioterapia</li>
+            <li>1 consulta com Nutricionista</li>
+            <li>1 consulta com Homeopata</li>
+          </ul>
+          <a href="https://wa.me/5538032201705?text=Olá!%20Tenho%20interesse%20no%20Plano%20Completo%20Natural%20da%20Elyon%20NeuroKids." target="_blank" class="plano-cta">Quero este plano</a>
+        </div>
+        <div class="plano-card">
+          <h3>Completo com Consulta</h3>
+          <p style="font-size:13px;color:var(--texto-suave);margin-bottom:4px">Sessões + nutricionista</p>
+          <div class="plano-price"><sup>R$</sup>1.200<span>/mês</span></div>
+          <div class="plano-divider"></div>
+          <ul class="plano-items">
+            <li>4 sessões de Fonoaudiologia</li>
+            <li>4 sessões de Psicologia</li>
+            <li>4 sessões de Fisioterapia</li>
+            <li>1 consulta com Nutricionista</li>
+          </ul>
+          <a href="https://wa.me/5538032201705?text=Olá!%20Tenho%20interesse%20no%20Plano%20Completo%20com%20Consulta%20da%20Elyon%20NeuroKids." target="_blank" class="plano-cta">Quero este plano</a>
+        </div>
+        <div class="plano-card">
+          <h3>Completo Sessões</h3>
+          <p style="font-size:13px;color:var(--texto-suave);margin-bottom:4px">Foco nas terapias</p>
+          <div class="plano-price"><sup>R$</sup>1.000<span>/mês</span></div>
+          <div class="plano-divider"></div>
+          <ul class="plano-items">
+            <li>4 sessões de Fonoaudiologia</li>
+            <li>4 sessões de Psicologia</li>
+            <li>4 sessões de Fisioterapia</li>
+          </ul>
+          <a href="https://wa.me/5538032201705?text=Olá!%20Tenho%20interesse%20no%20Plano%20Completo%20Sessões%20da%20Elyon%20NeuroKids." target="_blank" class="plano-cta">Quero este plano</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BÁSICOS -->
+    <div class="tab-content" id="tab-basicos">
+      <div class="planos-grid">
+        <div class="plano-card">
+          <h3>Fala e Comportamento</h3>
+          <p style="font-size:13px;color:var(--texto-suave);margin-bottom:4px">Fono + Psicologia</p>
+          <div class="plano-price"><sup>R$</sup>700<span>/mês</span></div>
+          <div class="plano-divider"></div>
+          <ul class="plano-items">
+            <li>4 sessões de Fonoaudiologia</li>
+            <li>4 sessões de Psicologia</li>
+          </ul>
+          <a href="https://wa.me/5538032201705?text=Olá!%20Tenho%20interesse%20no%20Plano%20Básico%20Fala%20e%20Comportamento." target="_blank" class="plano-cta">Quero este plano</a>
+        </div>
+        <div class="plano-card">
+          <h3>Motor e Fala</h3>
+          <p style="font-size:13px;color:var(--texto-suave);margin-bottom:4px">Fono + Fisioterapia</p>
+          <div class="plano-price"><sup>R$</sup>700<span>/mês</span></div>
+          <div class="plano-divider"></div>
+          <ul class="plano-items">
+            <li>4 sessões de Fonoaudiologia</li>
+            <li>4 sessões de Fisioterapia</li>
+          </ul>
+          <a href="https://wa.me/5538032201705?text=Olá!%20Tenho%20interesse%20no%20Plano%20Básico%20Motor%20e%20Fala." target="_blank" class="plano-cta">Quero este plano</a>
+        </div>
+        <div class="plano-card">
+          <h3>Emoção e Motor</h3>
+          <p style="font-size:13px;color:var(--texto-suave);margin-bottom:4px">Psico + Fisioterapia</p>
+          <div class="plano-price"><sup>R$</sup>650<span>/mês</span></div>
+          <div class="plano-divider"></div>
+          <ul class="plano-items">
+            <li>4 sessões de Psicologia</li>
+            <li>4 sessões de Fisioterapia</li>
+          </ul>
+          <a href="https://wa.me/5538032201705?text=Olá!%20Tenho%20interesse%20no%20Plano%20Básico%20Emoção%20e%20Motor." target="_blank" class="plano-cta">Quero este plano</a>
+        </div>
+        <div class="plano-card">
+          <h3>Seletividade Alimentar</h3>
+          <p style="font-size:13px;color:var(--texto-suave);margin-bottom:4px">Fono + Nutrição</p>
+          <div class="plano-price"><sup>R$</sup>650<span>/mês</span></div>
+          <div class="plano-divider"></div>
+          <ul class="plano-items">
+            <li>4 sessões de Fonoaudiologia</li>
+            <li>1 consulta com Nutricionista</li>
+          </ul>
+          <a href="https://wa.me/5538032201705?text=Olá!%20Tenho%20interesse%20no%20Plano%20Básico%20Seletividade%20Alimentar." target="_blank" class="plano-cta">Quero este plano</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INDIVIDUAIS -->
+    <div class="tab-content" id="tab-individuais">
+      <p style="font-size:15px;color:var(--texto-suave);margin-bottom:28px;line-height:1.7">Prefere flexibilidade? Contrate sessões ou consultas avulsas dentro dos nossos pacotes com os melhores valores.</p>
+      <div class="ind-grid">
+        <div class="ind-card">
+          <span class="esp-icon">🗣️</span>
+          <h4 style="color:var(--verde)">Fonoaudiologia</h4>
+          <div class="ind-price" style="color:var(--verde)"><sup>R$</sup>100</div>
+          <p>por sessão no pacote</p>
+        </div>
+        <div class="ind-card">
+          <span class="esp-icon">🧠</span>
+          <h4 style="color:var(--roxo)">Psicologia</h4>
+          <div class="ind-price" style="color:var(--roxo)"><sup>R$</sup>80</div>
+          <p>por sessão no pacote</p>
+        </div>
+        <div class="ind-card">
+          <span class="esp-icon">🤸</span>
+          <h4 style="color:var(--rosa)">Fisioterapia</h4>
+          <div class="ind-price" style="color:var(--rosa)"><sup>R$</sup>80</div>
+          <p>por sessão no pacote</p>
+        </div>
+        <div class="ind-card">
+          <span class="esp-icon">🥗</span>
+          <h4 style="color:var(--amarelo)">Nutricionista</h4>
+          <div class="ind-price" style="color:var(--amarelo)"><sup>R$</sup>250</div>
+          <p>por consulta</p>
+        </div>
+        <div class="ind-card">
+          <span class="esp-icon">💊</span>
+          <h4 style="color:var(--coral)">Psiquiatra</h4>
+          <div class="ind-price" style="color:var(--coral)"><sup>R$</sup>700</div>
+          <p>por consulta</p>
+        </div>
+        <div class="ind-card">
+          <span class="esp-icon">🌿</span>
+          <h4 style="color:var(--azul)">Homeopata</h4>
+          <div class="ind-price" style="color:var(--azul)"><sup>R$</sup>300</div>
+          <p>por consulta</p>
+        </div>
+        <div class="ind-card">
+          <span class="esp-icon">📚</span>
+          <h4 style="color:var(--verde)">Reforço Escolar</h4>
+          <div class="ind-price" style="color:var(--verde)"><sup>R$</sup>30</div>
+          <p>por sessão</p>
+        </div>
+      </div>
+      <div style="margin-top:32px;background:#fff;border-radius:20px;padding:24px;border:2px solid #f0ece8;max-width:600px">
+        <h4 style="font-size:15px;font-weight:700;color:var(--roxo);margin-bottom:8px">💡 Dica para economizar</h4>
+        <p style="font-size:14px;color:var(--texto-suave);line-height:1.7">Ao contratar um dos nossos planos de pacote, você garante esses valores especiais por sessão. Fale com nossa equipe para montar o plano ideal para a sua criança.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="section-inner">
+    <p class="section-tag" style="color:var(--rosa)">✦ O que dizem ✦</p>
+    <h2 class="section-title" style="color:var(--roxo)">Famílias que confiam na Elyon</h2>
+    <p class="section-desc">Histórias reais de famílias que transformaram a vida de seus filhos com nossos cuidados.</p>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">Meu filho tem TEA e desde que começamos o atendimento multidisciplinar na Elyon, a evolução foi incrível. A equipe é super dedicada e o resultado apareceu rápido.</p>
+        <div class="dep-author">
+          <div class="dep-avatar" style="background:#f5f0ff;font-size:22px">👩</div>
+          <div>
+            <div class="dep-name">Ana Paula S.</div>
+            <div class="dep-role">Mãe de paciente com TEA</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">A fonoaudióloga Danielle é simplesmente incrível! Em poucos meses minha filha já evoluiu muito na fala. O atendimento é acolhedor e muito profissional.</p>
+        <div class="dep-author">
+          <div class="dep-avatar" style="background:#edfaf5;font-size:22px">👩</div>
+          <div>
+            <div class="dep-name">Fernanda M.</div>
+            <div class="dep-role">Mãe de paciente de fonoaudiologia</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">Os planos de atendimento fazem toda a diferença. Consigo ter acesso a vários especialistas num único lugar, com custo acessível e um cuidado individualizado.</p>
+        <div class="dep-author">
+          <div class="dep-avatar" style="background:#fff9ec;font-size:22px">👨</div>
+          <div>
+            <div class="dep-name">Carlos R.</div>
+            <div class="dep-role">Pai de paciente com TDAH</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="section-inner">
+    <p class="section-tag" style="color:var(--verde)">✦ Entre em contato ✦</p>
+    <h2 class="section-title" style="color:var(--roxo)">Agende a consulta do seu filho</h2>
+    <div class="contato-grid">
+      <div class="contato-info">
+        <p style="font-size:16px;line-height:1.8;color:var(--texto-suave);margin-bottom:8px">Nossa equipe está pronta para acolher sua família. Entre em contato e descubra qual o melhor plano para o desenvolvimento do seu filho.</p>
+        <div class="contato-item">
+          <div class="contato-icon" style="background:#edfaf5">📱</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>(38) 3220-1705</p>
+          </div>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icon" style="background:#fff9ec">✉️</div>
+          <div>
+            <h4>E-mail</h4>
+            <p>elyonneurokids@yahoo.com</p>
+          </div>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icon" style="background:#f5f0ff">📸</div>
+          <div>
+            <h4>Instagram</h4>
+            <p>Siga para dicas e novidades sobre neurodesenvolvimento infantil</p>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:20px;padding:20px;border:2px solid #f0ece8;margin-top:8px">
+          <p style="font-size:13px;font-weight:700;color:var(--roxo);margin-bottom:8px">🕐 Como funciona o agendamento?</p>
+          <p style="font-size:13px;color:var(--texto-suave);line-height:1.7">Mande mensagem no WhatsApp → nossa secretária tira todas as dúvidas e agenda → no dia, os profissionais fazem a avaliação e apresentam o plano terapêutico → você já agenda as próximas sessões na recepção.</p>
+        </div>
+      </div>
+      <div>
+        <form class="contato-form" onsubmit="handleForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nome do responsável *</label>
+              <input type="text" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+              <label>Nome da criança *</label>
+              <input type="text" placeholder="Nome do seu filho(a)" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>WhatsApp *</label>
+              <input type="tel" placeholder="(38) 99999-9999" required>
+            </div>
+            <div class="form-group">
+              <label>Idade da criança</label>
+              <input type="text" placeholder="Ex: 5 anos">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Plano de interesse</label>
+            <select>
+              <option value="">Selecione um plano...</option>
+              <option>Plano Completo — R$ 1.900/mês</option>
+              <option>Plano Completo Natural — R$ 1.500/mês</option>
+              <option>Plano Completo com Consulta — R$ 1.200/mês</option>
+              <option>Plano Completo Sessões — R$ 1.000/mês</option>
+              <option>Plano Básico Fala e Comportamento — R$ 700/mês</option>
+              <option>Plano Básico Motor e Fala — R$ 700/mês</option>
+              <option>Plano Básico Emoção e Motor — R$ 650/mês</option>
+              <option>Plano Básico Seletividade Alimentar — R$ 650/mês</option>
+              <option>Quero ajuda para escolher</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Conte um pouco sobre as necessidades do seu filho</label>
+            <textarea placeholder="Descreva brevemente os principais desafios ou queixas..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar mensagem 💚</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" style="color:var(--amarelo)">
+          Elyon NeuroKids
+          <span style="color:var(--verde)">✦ clínica infantil ✦</span>
+        </a>
+        <p>Clínica multidisciplinar especializada no cuidado e desenvolvimento de crianças com TEA, TDAH e alterações neurológicas. Tratamentos com comprovação científica para resultados reais.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre a clínica</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#equipe">Nossa equipe</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="tel:3832201705">(38) 3220-1705</a></li>
+          <li><a href="mailto:elyonneurokids@yahoo.com">elyonneurokids@yahoo.com</a></li>
+          <li><a href="https://wa.me/5538032201705" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Elyon NeuroKids — Todos os direitos reservados</p>
+      <p style="color:var(--verde)">Feito com 💚 para as famílias</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5538032201705?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20da%20Elyon%20NeuroKids." target="_blank" class="whatsapp-float">💬</a>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Mensagem enviada!';
+    btn.style.background = 'var(--roxo)';
+    setTimeout(() => {
+      btn.textContent = 'Enviar mensagem 💚';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
